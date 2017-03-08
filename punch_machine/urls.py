@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from rest_framework import routers
+
+from punch_machine import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 ]
+
+router = routers.SimpleRouter()
+router.register(r'wechat_user', views.WechatUserViewSet, 'users')
+
+urlpatterns += router.urls
