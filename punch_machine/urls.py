@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 ]
 
-router = routers.SimpleRouter()
+router = routers.SimpleRouter(False)
 router.register(r'wechat_user', views.WechatUserViewSet, 'users')
 
 urlpatterns += router.urls

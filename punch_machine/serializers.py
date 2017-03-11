@@ -6,5 +6,5 @@ class WechatUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.WechatUser
-        fields = ('id', 'openid', 'avatarUrl', 'city', 'country',
+        fields = ('openid', 'avatarUrl', 'city', 'country',
                   'gender', 'language', 'nickName', 'province')
