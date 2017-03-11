@@ -8,5 +8,5 @@ class WechatUser(models.Model):
     country = models.CharField(max_length=20, null=True, blank=True)
     gender = models.IntegerField(null=True, blank=True)
     language = models.CharField(max_length=20, null=True, blank=True)
-    nickName = models.CharField(max_length=100, null=True, blank=True)
+    nickName = models.CharField(max_length=100)
     province = models.CharField(max_length=20, null=True, blank=True)
