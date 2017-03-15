@@ -21,9 +21,11 @@ from punch_machine import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^group/check/name$', views.check_group_name, name='check-group-name')
 ]
 
 router = routers.SimpleRouter(False)
 router.register(r'wechat_user', views.WechatUserViewSet, 'users')
+router.register(r'group', views.GroupViewSet, 'group')
 
 urlpatterns += router.urls

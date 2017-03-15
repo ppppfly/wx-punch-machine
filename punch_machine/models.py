@@ -10,3 +10,7 @@ class WechatUser(models.Model):
     language = models.CharField(max_length=20, null=True, blank=True)
     nickName = models.CharField(max_length=100)
     province = models.CharField(max_length=20, null=True, blank=True)
+
+
+class Group(models.Model):
+    name = models.CharField(max_length=50)

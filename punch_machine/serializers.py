@@ -8,3 +8,10 @@ class WechatUserSerializer(serializers.ModelSerializer):
         model = models.WechatUser
         fields = ('openid', 'avatarUrl', 'city', 'country',
                   'gender', 'language', 'nickName', 'province')
+
+
+class GroupSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Group
+        fields = '__all__'
