@@ -21,7 +21,6 @@ class WechatUser(TimeMannerModel):
 
 class Group(TimeMannerModel):
     name = models.CharField(max_length=50)
-    members = models.ManyToManyField(WechatUser, related_name='groups')
 
 
 class Permission(TimeMannerModel):
@@ -37,5 +36,5 @@ class Role(TimeMannerModel):
 
 class Membership(TimeMannerModel):
     group = models.ForeignKey(Group)
-    WechatUser = models.ForeignKey(WechatUser)
+    user = models.ForeignKey(WechatUser)
     role = models.ForeignKey(Role)

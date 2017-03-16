@@ -22,10 +22,4 @@ class GroupCreateSerializer(serializers.ModelSerializer):
         model = models.Group
         fields = ('name', 'openid')
 
-    openid = serializers.CharField()
-
-    def create(self, validated_data):
-
-        # todo: 绑定当前openid和group,并创建组长角色
-
-        super(GroupCreateSerializer, self).create(validated_data)
+    openid = serializers.ReadOnlyField()
