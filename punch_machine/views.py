@@ -24,13 +24,19 @@ class GroupViewSet(viewsets.ModelViewSet):
 
     def get_serializer_class(self):
 
-        if self.request.method in ['POST']:
+        if self.action in ['create']:
             self.serializer_class = serializers.GroupCreateSerializer
 
         else:
             self.serializer_class = serializers.GroupSerializer
 
         return self.serializer_class
+
+    def filter_queryset(self, queryset):
+        openid = self.request.GET.get('openid')
+        if openid:
+            return queryset.filter(members__user__openid=openid)
+        return queryset
 
     def perform_create(self, serializer):
 
