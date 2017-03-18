@@ -32,6 +32,8 @@ class GroupViewSet(viewsets.ModelViewSet):
 
         return self.serializer_class
 
+
+
     def perform_create(self, serializer):
 
         openid = self.request.data.get('openid')
@@ -41,7 +43,7 @@ class GroupViewSet(viewsets.ModelViewSet):
             resp = super(GroupViewSet, self).perform_create(serializer)
             wx_user = get_object_or_404(models.WechatUser, openid=openid)
             group = get_object_or_404(models.Group, name=group_name)
-            role, created = models.Role.objects.get_or_create(name='组长', group=group)
+            role, created = models.Role.objects.get_or_create(name=u'组长', code='leader', level=100)
             models.Membership.objects.create(group=group, user=wx_user, role=role)
         else:
             resp = HttpResponse()

@@ -1,3 +1,4 @@
+# coding=utf-8
 from django.db import models
 
 
@@ -29,8 +30,9 @@ class Permission(TimeMannerModel):
 
 
 class Role(TimeMannerModel):
+    code = models.CharField(max_length=50)
     name = models.CharField(max_length=10)
-    group = models.ForeignKey(Group)
+    level = models.IntegerField(u'等级', default=1)
     permissions = models.ManyToManyField(Permission, related_name='roles')
 
 
