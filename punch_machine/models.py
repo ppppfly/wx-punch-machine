@@ -37,6 +37,6 @@ class Role(TimeMannerModel):
 
 
 class Membership(TimeMannerModel):
-    group = models.ForeignKey(Group)
+    group = models.ForeignKey(Group, related_name='members')
     user = models.ForeignKey(WechatUser)
     role = models.ForeignKey(Role)

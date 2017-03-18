@@ -15,6 +15,7 @@ class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Group
         fields = '__all__'
+        depth = 2
 
 
 class GroupCreateSerializer(serializers.ModelSerializer):
