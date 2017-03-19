@@ -20,13 +20,15 @@ class WechatUserViewSet(viewsets.GenericViewSet,
 
 class GroupViewSet(viewsets.ModelViewSet):
     queryset = models.Group.objects.all()
-    serializer_class = serializers.GroupSerializer
 
     def get_serializer_class(self):
 
         if self.action in ['create']:
             self.serializer_class = serializers.GroupCreateSerializer
-
+        elif self.action in ['list']:
+            self.serializer_class = serializers.GroupListSerializer
+        elif self.action in ['retrieve']:
+            self.serializer_class = serializers.GroupDetailSerializer
         else:
             self.serializer_class = serializers.GroupSerializer
 
